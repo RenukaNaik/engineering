@@ -420,6 +420,7 @@ tr{
 
   
 
+
   
 
       
@@ -749,16 +750,16 @@ function plotC(){
   programm = document.getElementById('Program').value
   coursename = document.getElementById('CourseName').value
 
-  if(region!='SelectState') {
+  if(region!='SelectState' && region!='All') {
     r=true
     arr.push(region)
   }
-  if(districtt!='choose') {
+  if(districtt!='choose' && districtt!='All') {
     d=true
     arr.push(districtt)
     console.log(arr)
   }
-  if(taluka!='choose') {
+  if(taluka!='choose' && taluka!='All') {
     t=true
     arr.push(taluka)
     // console.log(arr)
@@ -787,7 +788,21 @@ function plotC(){
     cn=true;
     arr.push(coursename)
   }if(region=='All' || districtt=='All' || taluka=='All'){
-    alll()
+    if(r || d || t || a || m || s || cl || p || cn){
+      if(region=='All'){
+        region='SelectState';
+      }
+      if(districtt=='All'){
+        districtt='choose';
+      }
+      if(taluka=='All'){
+        taluka='choose';
+      }
+      
+    }else{
+      alll()
+    }
+    
   }
 
   arr.forEach(e=>{
